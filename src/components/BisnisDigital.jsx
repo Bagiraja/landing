@@ -23,7 +23,6 @@ const BisnisDigital = () => {
     // Navigate to home page and scroll to Keunggulan section
     navigate('/#keunggulan');
     navigate('/#testimonials');
-   
   };
 
   // Scroll to top when component mounts
@@ -37,7 +36,8 @@ const BisnisDigital = () => {
         S1 BISNIS DIGITAL
       </h2>
       
-      <div className="flex flex-col md:flex-row items-center justify-center px-4 space-y-6 md:space-y-0 md:space-x-8">
+      <div className="flex flex-col md:flex-row items-center justify-between px-4 space-y-6 md:space-y-0">
+        {/* Gambar */}
         <div className="w-full md:w-1/2 flex justify-center">
           <img
             src="images/gm8.JPG"
@@ -46,6 +46,7 @@ const BisnisDigital = () => {
           />
         </div>
         
+        {/* Teks dan Daftar Pilihan Karir */}
         <div className="w-full md:w-1/2 text-center md:text-left">
           <div className="max-w-md mx-auto">
             <div>
@@ -72,8 +73,6 @@ const BisnisDigital = () => {
                 ))}
               </ul>
             </div>
-
-           
           </div>
         </div>
       </div>

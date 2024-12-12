@@ -73,6 +73,12 @@ const Keunggulan = () => {
       title: "Fleksibel",
       alt: "Save Money",
       bgColor: "bg-white"
+    },
+    {
+      icon: "images/save-money (3).png",
+      title: "Fleksibel",
+      alt: "Save Money",
+      bgColor: "bg-white"
     }
   ];
 
@@ -99,7 +105,8 @@ const Keunggulan = () => {
       <motion.div 
         initial="initial"
         animate="animate"
-        className="max-w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-20 relative z-10"
+        // Modified grid classes to show 2 cards on small screens, 3 on medium and larger
+        className="max-w-[95%] mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mt-20 relative z-10"
       >
         {keunggulanData.map((item, index) => (
           <motion.div 

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Film = () => {
   const [visibleText, setVisibleText] = useState('');
-  const fullText = "Lebih dari Ratusan mahasiswa aktif saat ini bisa kuliah sambil bekerja";
+  const fullText = "Lebih dari Ratusan Mahasiswa Telah Membuktikan Keberhasilan! Mereka Berhasil Menggapai Impian Pendidikan Tinggi Tanpa Mengorbankan Karir Profesional Mereka. Setiap Semester, Jumlah Mahasiswa yang Sukses Kuliah Sambil Bekerja Terus Bertambah, Menunjukkan Bahwa Pendidikan Tinggi Kini Tidak Lagi Membatasi Aktivitas Profesional Anda!";
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -46,11 +46,24 @@ const Film = () => {
       className="py-12 bg-[rgba(30,64,175,0.75)] relative"
     >
       <div className="flex flex-col md:flex-row items-center justify-center px-4 space-y-6 md:space-y-0 md:space-x-8">
-        {/* Video */}
+        {/* Konten Teks - Sekarang di kiri */}
+        <div className="w-full md:w-1/2 text-center md:text-center">
+          <div className="max-w-md mx-auto">
+            {/* Program Studi 1 */}
+            <div>
+              <h3 className="text-xl font-poppins mb-4 text-white">
+                {visibleText}
+                <span className="animate-blink">!</span>
+              </h3>
+            </div>
+          </div>
+        </div>
+        
+        {/* Video - Sekarang di kanan */}
         <div className="w-full md:w-1/2 flex justify-center">
           <video
-            src="/path/to/your/video.mp4"
-            className="max-w-full h-auto md:max-w-[550px]"
+            src="images/lp3ivdi.mp4"
+            className="max-w-full h-auto md:max-w-[280px] rounded-xl"
             controls
             autoPlay
             loop
@@ -59,19 +72,6 @@ const Film = () => {
           >
             Your browser does not support the video tag.
           </video>
-        </div>
-        
-        {/* Konten Teks */}
-        <div className="w-full md:w-1/2 text-center md:text-left">
-          <div className="max-w-md mx-auto">
-            {/* Program Studi 1 */}
-            <div>
-              <h3 className="text-3xl font-poppins mb-4 text-white">
-                {visibleText}
-                <span className="animate-blink">!</span>
-              </h3>
-            </div>
-          </div>
         </div>
       </div>
     </section>
