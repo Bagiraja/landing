@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Features = () => {
   return (
-    <section id="features" className="py-12 bg-white">
+    <section id="features" className="py-20 bg-white">
       <h2 className="text-center text-2xl sm:text-3xl font-bold font-poppins mb-8">Program Studi</h2>
       
       <div className="flex flex-col md:flex-row items-center justify-center px-4 space-y-6 md:space-y-0 md:space-x-8">

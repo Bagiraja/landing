@@ -28,7 +28,7 @@ const Features = () => {
     
               <div>
     
-              <ul className="list-disc list-inside text-gray-700 text-xl mt-5">
+              <ul className="list-disc list-inside text-black text-xl mt-5">
                 {items.map((item, index) => (
                   <li key={index}>{item}</li>
                 ))}

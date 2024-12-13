@@ -40,7 +40,7 @@ const Navbar = () => {
   }, [location]);
 
   return (
-    <nav className="bg-blue-800 text-white px-4 flex justify-between items-center h-20 sticky top-0 z-50">
+    <nav className="bg-gradient-to-r from-[#00328E] to-[#0056D2] text-white px-4 flex justify-between items-center h-20 sticky top-0 z-50">
       <div className="flex items-center space-x-4">
         <Link to="/">
           <img src={logoImage} alt="LP3I Logo" className="h-14 ms-5" />
@@ -84,7 +84,7 @@ const Navbar = () => {
             onClick={() => handleNavigation('keunggulan')}
             className="block px-4 py-2 md:p-0 hover:underline font-bold w-full text-left"
           >
-            Kelebihan
+            Keunggulan
           </button>
         </li>
         <li className="border-b md:border-none border-white">
