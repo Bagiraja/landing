@@ -73,7 +73,7 @@ const Navbar = () => {
         <li className="border-b md:border-none border-white">
           <Link 
             to="/" 
-            className="block px-4 py-2 md:p-0 text-white font-bold hover:underline transition duration-300"
+            className="block px-4 py-2 md:p-0 text-white font-bold  transition duration-300 hover:border-b-2 "
           >
             Home
           </Link>
@@ -82,7 +82,7 @@ const Navbar = () => {
         <li className="border-b md:border-none border-white">
           <button
             onClick={() => handleNavigation('keunggulan')}
-            className="block px-4 py-2 md:p-0 hover:underline font-bold w-full text-left"
+            className="block px-4 py-2 md:p-0 hover:border-b-2 font-bold w-full text-left"
           >
             Keunggulan
           </button>
@@ -90,7 +90,7 @@ const Navbar = () => {
         <li className="border-b md:border-none border-white">
           <button
             onClick={() => handleNavigation('testimonials')}
-            className="block px-4 py-2 md:p-0 hover:underline font-bold w-full text-left"
+            className="block px-4 py-2 md:p-0 hover:border-b-2 font-bold w-full text-left"
           >
             Testimoni
           </button>

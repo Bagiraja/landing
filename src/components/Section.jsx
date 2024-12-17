@@ -6,8 +6,8 @@ const Section = () => {
   const [visibleText, setVisibleText] = useState("");
   
   // WhatsApp contact information
-  const whatsappNumber = "+6283173128123"; 
-  const whatsappMessage = "Saya ingin mendaftar kelas karyawan";
+  const whatsappNumber = "+6285811894529"; 
+
   
   // Refs and text for animation
   const sectionRef = useRef(null);
@@ -52,7 +52,7 @@ const Section = () => {
 
   // WhatsApp contact handler
   const handleWhatsAppClick = () => {
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappUrl = `https://wa.me/${whatsappNumber}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -87,7 +87,7 @@ const Section = () => {
           {/* Call to Action Button */}
           <button 
             onClick={handleWhatsAppClick}
-            className="mt-6 bg-blue-800 text-white px-6 py-3 rounded-lg hover:bg-blue-400 transition-colors duration-300"
+            className="mt-6 bg-blue-800 text-white px-6 py-3 rounded-lg transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-blue-700 duration-300 "
           >
             Daftar Sekarang
           </button>

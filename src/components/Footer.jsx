@@ -37,6 +37,11 @@ const Footer = () => {
                   color: "text-blue-500 hover:text-blue-300" 
                 },
                 { 
+                  Icon: () => <img src="images/tik-tok (1).png" alt="TikTok" className="w-6 h-6" />, 
+                  href: "https://www.tiktok.com/@lp3i.depok",
+                  color: "hover:opacity-75" 
+                },
+                { 
                   Icon: Instagram, 
                   href: "https://www.instagram.com/lp3i.depok?igsh=OWF0ZGJnZDRpZGR3",
                   color: "text-pink-500 hover:text-pink-300" 
@@ -46,11 +51,6 @@ const Footer = () => {
                   href: "https://www.youtube.com/@pljdepok",
                   color: "text-red-500 hover:text-red-300" 
                 },
-                { 
-                  Icon: () => <img src="images/tik-tok (1).png" alt="TikTok" className="w-6 h-6" />, 
-                  href: "https://www.tiktok.com/@lp3i.depok",
-                  color: "hover:opacity-75" 
-                }
               ].map(({ Icon, href, color }, index) => (
                 <a
                   key={index}
