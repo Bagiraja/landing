@@ -2,6 +2,12 @@ import React from "react";
 import { BadgeCheck } from "lucide-react";
 
 const Features = () => {
+
+  const whatsappNumber = "+6285811894529"; 
+  const handleWhatsAppClick = () => {
+    const whatsappUrl = `https://wa.me/${whatsappNumber}`;
+    window.open(whatsappUrl, '_blank');
+  };
   const items = [
     "Hanya 15 Pendaftar Pertama",
     "Diskon Khusus s.d 25 Desember 2024",
@@ -48,9 +54,12 @@ const Features = () => {
               </div>
 
               <div className="mt-8">
-                <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transform hover:-translate-y-1 transition-all duration-200 shadow-lg hover:shadow-xl">
-                  Daftar Sekarang
-                </button>
+              <button 
+            onClick={handleWhatsAppClick}
+            className="mt-6 bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-3 rounded-lg transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-blue-700 duration-300 "
+          >
+            Daftar Sekarang
+          </button>
               </div>
             </div>
           </div>

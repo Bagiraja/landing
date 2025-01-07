@@ -87,7 +87,7 @@ const Section = () => {
           {/* Call to Action Button */}
           <button 
             onClick={handleWhatsAppClick}
-            className="mt-6 bg-blue-800 text-white px-6 py-3 rounded-lg transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-blue-700 duration-300 "
+            className="mt-6 bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-3 rounded-lg transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-blue-700 duration-300 "
           >
             Daftar Sekarang
           </button>
