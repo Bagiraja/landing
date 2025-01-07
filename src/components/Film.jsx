@@ -43,7 +43,7 @@ const Film = () => {
     <section 
       id="features"
       ref={sectionRef}
-      className="py-12 bg-[rgba(30,64,175,0.75)] relative"
+      className="py-12 bg-white relative"
     >
       <div className="flex flex-col md:flex-row items-center justify-center px-4 space-y-6 md:space-y-0 md:space-x-8">
         {/* Konten Teks - Sekarang di kiri */}
@@ -51,7 +51,7 @@ const Film = () => {
           <div className="max-w-md mx-auto">
             {/* Program Studi 1 */}
             <div>
-              <h3 className="text-xl font-poppins mb-4 text-white">
+              <h3 className="text-xl font-poppins mb-4 text-black">
                 {visibleText}
                 <span className="animate-blink">!</span>
               </h3>

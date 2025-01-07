@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logoImage from "../assets/images/lp3i.png";
+import blueLogoImage from "../assets/images/lp.png";  // Tambahkan logo warna biru
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -11,16 +13,11 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  // Function to handle navigation to home page and scroll to section
   const handleNavigation = (sectionId) => {
-    // Close mobile menu
     setIsOpen(false);
-
-    // If not on home page, navigate to home with hash
     if (location.pathname !== '/') {
       navigate(`/#${sectionId}`);
     } else {
-      // If already on home page, scroll to section
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
@@ -28,7 +25,19 @@ const Navbar = () => {
     }
   };
 
-  // Effect to handle hash navigation when component mounts or location changes
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   useEffect(() => {
     if (location.hash) {
       const id = location.hash.replace('#', '');
@@ -40,63 +49,104 @@ const Navbar = () => {
   }, [location]);
 
   return (
-    <nav className="bg-gradient-to-r from-[#00328E] to-[#0056D2] text-white px-4 flex justify-between items-center h-20 sticky top-0 z-50">
-      <div className="flex items-center space-x-4">
-        <Link to="/">
-          <img src={logoImage} alt="LP3I Logo" className="h-14 ms-5" />
-        </Link>
-      </div>
-      <button
-        className="text-white md:hidden focus:outline-none"
-        onClick={toggleMenu}
-      >
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-          />
-        </svg>
-      </button>
-      <ul
-        className={`${
-          isOpen ? "block" : "hidden"
-        } absolute md:relative top-16 md:top-0 left-0 w-full md:w-auto md:flex md:space-x-6 bg-blue-700 md:bg-transparent`}
-      >
-        <li className="border-b md:border-none border-white">
-          <Link 
-            to="/" 
-            className="block px-4 py-2 md:p-0 text-white font-bold  transition duration-300 hover:border-b-2 "
-          >
-            Home
-          </Link>
-        </li>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled 
+          ? 'bg-white/80 backdrop-blur-md shadow-lg'
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
+          <div className="flex items-center">
+            <Link to="/" className="flex-shrink-0">
+              <img 
+                src={scrolled ? blueLogoImage : logoImage} 
+                alt="LP3I Logo" 
+                className="h-14" 
+              />
+            </Link>
+          </div>
 
-        <li className="border-b md:border-none border-white">
-          <button
-            onClick={() => handleNavigation('keunggulan')}
-            className="block px-4 py-2 md:p-0 hover:border-b-2 font-bold w-full text-left"
-          >
-            Keunggulan
-          </button>
-        </li>
-        <li className="border-b md:border-none border-white">
-          <button
-            onClick={() => handleNavigation('testimonials')}
-            className="block px-4 py-2 md:p-0 hover:border-b-2 font-bold w-full text-left"
-          >
-            Testimoni
-          </button>
-        </li>
-   
-      </ul>
+          <div className="hidden md:block">
+            <div className="ml-10 flex items-baseline space-x-8">
+              <Link
+                to="/"
+                className={`${
+                  scrolled ? 'text-gray-800' : 'text-white'
+                } hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300`}
+              >
+                Home
+              </Link>
+              <button
+                onClick={() => handleNavigation('keunggulan')}
+                className={`${
+                  scrolled ? 'text-gray-800' : 'text-white'
+                } hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300`}
+              >
+                Keunggulan
+              </button>
+              <button
+                onClick={() => handleNavigation('testimonials')}
+                className={`${
+                  scrolled ? 'text-gray-800' : 'text-white'
+                } hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300`}
+              >
+                Testimoni
+              </button>
+            </div>
+          </div>
+
+          <div className="md:hidden">
+            <button
+              onClick={toggleMenu}
+              className={`${
+                scrolled ? 'text-gray-800' : 'text-white'
+              } inline-flex items-center justify-center p-2 rounded-md hover:text-blue-600 focus:outline-none transition-colors duration-300`}
+            >
+              <svg
+                className="h-6 w-6"
+                stroke="currentColor"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile menu */}
+        <div className={`${isOpen ? 'block' : 'hidden'} md:hidden`}>
+          <div className={`px-2 pt-2 pb-3 space-y-1 ${
+            scrolled ? 'bg-white/80 backdrop-blur-md' : 'bg-black/50'
+          }`}>
+            <Link
+              to="/"
+              className="text-white hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300"
+            >
+              Home
+            </Link>
+            <button
+              onClick={() => handleNavigation('keunggulan')}
+              className="text-white hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors duration-300"
+            >
+              Keunggulan
+            </button>
+            <button
+              onClick={() => handleNavigation('testimonials')}
+              className="text-white hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors duration-300"
+            >
+              Testimoni
+            </button>
+          </div>
+        </div>
+      </div>
     </nav>
   );
 };

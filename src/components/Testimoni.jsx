@@ -2,8 +2,14 @@ import React from "react";
 
 const Testimoni = () => {
   return (
-    <section id="testimonials" className="py-20 bg-white ">
-      <h2 className="text-center text-3xl font-bold mb-9 font-poppins">Testimoni </h2>
+    <section id="testimonials" className="py-20  bg-gradient-to-b from-blue-50 via-blue-100 to-blue-200">
+      <div className="text-center mb-16">
+          
+          <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-4">
+            Testimoni
+          </h2>
+          <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
+        </div>
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-6 lg:px-8">
         {/* Testimoni 1 */}
         <div className="bg-gray-50  p-6 rounded-xl shadow-custom-lg-biru flex flex-col items-center  ">
