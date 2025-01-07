@@ -60,19 +60,38 @@ const Film = () => {
         </div>
         
         {/* Video - Sekarang di kanan */}
-        <div className="w-full md:w-1/2 flex justify-center">
-          <video
-            src="images/lp3ivdi.mp4"
-            className="max-w-full h-auto md:max-w-[280px] rounded-xl"
-            controls
-            autoPlay
-            loop
-            muted
-            playsInline
-          >
-            Your browser does not support the video tag.
-          </video>
-        </div>
+        {/* Video Container */}
+        <div className="w-full md:w-1/4">
+            <div className="relative group perspective-1000">
+              {/* Gradient Border */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-blue-400 to-blue-600 rounded-2xl blur opacity-60 group-hover:opacity-70 transition duration-500"></div>
+              
+              {/* Video Wrapper */}
+              <div className="relative bg-white p-2 rounded-2xl transform-gpu group-hover:scale-102 group-hover:rotate-1 transition-all duration-500">
+                <video
+                  src="images/lp3ivdi.mp4"
+                  className=" rounded-xl shadow-2xl transform-gpu transition-all duration-500"
+                  style={{
+                    clipPath: 'polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%)'
+                  }}
+                  controls
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                >
+                  Your browser does not support the video tag.
+                </video>
+                
+                {/* Play Button Overlay */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg">
+                    <div className="w-0 h-0 border-t-8 border-t-transparent border-l-12 border-l-blue-600 border-b-8 border-b-transparent ml-1"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
     </section>
   );
